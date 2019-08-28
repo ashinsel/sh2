@@ -46,7 +46,10 @@
 #define SHTP_HDR_LEN (4)
 
 #define TAG_SHTP_VERSION 0x80
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 typedef struct shtp_App_s {
     uint32_t guid;
     char appName[SHTP_APP_NAME_LEN];
@@ -623,7 +626,6 @@ static void rxAssemble(shtp_t *pShtp, uint8_t *in, uint16_t len, uint32_t t_us)
 
     // If whole payload received, deliver it to channel listener.
     if (pShtp->inRemaining == 0) {
-
         // Call callback if there is one.
         if (pShtp->chan[chan].callback != 0) {
             pShtp->chan[chan].callback(pShtp->chan[chan].cookie,
@@ -817,3 +819,6 @@ void shtp_service(void *pInstance)
         rxAssemble(pShtp, pShtp->inTransfer, len, t_us);
     }
 }
+#ifdef __cplusplus
+}
+#endif

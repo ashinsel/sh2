@@ -22,7 +22,10 @@
 #include "sh2_SensorValue.h"
 #include "sh2_err.h"
 #include "sh2_util.h"
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #define SCALE_Q(n) (1.0f / (1 << n))
 
 const float scaleRadToDeg = 180.0 / 3.14159265358;
@@ -549,3 +552,6 @@ static int decodeIZroRequest(sh2_SensorValue_t *value, const sh2_SensorEvent_t *
 
     return SH2_OK;
 }
+#ifdef __cplusplus
+}
+#endif

@@ -35,6 +35,11 @@
 
 #include <string.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
 // ------------------------------------------------------------------------
 // Private type definitions
 
@@ -2329,3 +2334,7 @@ int sh2_setIZro(sh2_IZroMotionIntent_t intent)
     // Send command
     return opProcess(pSh2, &sendCmdOp);
 }
+
+#ifdef __cplusplus
+}
+#endif

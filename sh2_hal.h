@@ -25,6 +25,10 @@
 
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 // SH2 Implementations generally have a max out transfer len of 256
 #define SH2_HAL_MAX_TRANSFER_OUT (256)
 #define SH2_HAL_MAX_PAYLOAD_OUT  (256)
@@ -102,5 +106,8 @@ struct sh2_Hal_s {
     uint32_t (*getTimeUs)(sh2_Hal_t *self);
 };
 
+#ifdef __cplusplus
+}
+#endif
 // End of include guard
 #endif

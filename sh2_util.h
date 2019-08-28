@@ -23,7 +23,10 @@
 #define SH2_UTIL_H
 
 #include <stdint.h>
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 #ifndef ARRAY_LEN
 #define ARRAY_LEN(a) (sizeof(a)/sizeof(a[0]))
 #endif
@@ -41,5 +44,9 @@ int16_t read16(const uint8_t * buffer);
 void write16(uint8_t * buffer, int16_t value);
 int32_t read32(const uint8_t * buffer);
 void write32(uint8_t * buffer, int32_t value);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

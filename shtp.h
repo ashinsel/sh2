@@ -26,7 +26,10 @@
 #include <stdbool.h>
 
 #include "sh2_hal.h"
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 // Advertisement TLV tags
 #define TAG_NULL 0
 #define TAG_GUID 1
@@ -88,5 +91,8 @@ int shtp_send(void *pShtp,
 // Check for received data and process it.
 void shtp_service(void *pShtp);
 
+#ifdef __cplusplus
+}
+#endif
 // #ifdef SHTP_H
 #endif

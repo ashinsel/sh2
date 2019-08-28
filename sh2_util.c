@@ -20,7 +20,10 @@
  */
 
 #include "sh2_util.h"
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 uint8_t readu8(const uint8_t *p)
 {
     uint8_t retval = p[0];
@@ -102,3 +105,6 @@ void write32(uint8_t * p, int32_t value)
     value >>= 8;
     *p = (uint8_t)(value & 0xFF);
 }
+#ifdef __cplusplus
+}
+#endif

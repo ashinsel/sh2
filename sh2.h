@@ -31,7 +31,10 @@
 #include <stdbool.h>
 
 #include "sh2_hal.h"
-
+#ifdef __cplusplus
+extern "C"
+{
+#endif
 /***************************************************************************************
  * Public type definitions
  ***************************************************************************************/
@@ -684,4 +687,7 @@ int sh2_finishCal(sh2_CalStatus_t *status);
  */
 int sh2_setIZro(sh2_IZroMotionIntent_t intent);
 
+#ifdef __cplusplus
+}
+#endif
 #endif
